@@ -40,7 +40,7 @@ getCharts();
 function getCharts(){
    $.ajax({
     headers : {"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS"},
-    url : "https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=2538b3b1d406a3ddd6b776c21163d924",
+    url :  "https://api.musixmatch.com/ws/1.1/chart.tracks.get?chart_name=top&page=1&page_size=10&country=us&f_has_lyrics=1&apikey=2538b3b1d406a3ddd6b776c21163d924",
     method: "GET"
 
   }).then(function(response){
@@ -133,7 +133,8 @@ function play(a , flag){
 
   $.ajax({
     headers : {"Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS"},
-    url : deezerApi,
+    url : 'https://cors-anywhere.herokuapp.com/' + deezerApi,
+    
     method: "GET"
 
   }).then(function(response){
@@ -210,7 +211,7 @@ function music(mp3path){
 //define api values to be pulled
 function writeUserData(playlistURL,trackName,artist,album){
   connectionRef.push({
-    playlistURL :playlistURL,
+    playlistURL :'https://cors-anywhere.herokuapp.com/' +playlistURL,
     trackName : trackName,
     artist : artist,
     album : album,
